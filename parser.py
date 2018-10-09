@@ -60,7 +60,7 @@ for i in category_list:
 
 
 
-
+#  HUY PIZDA DJIGURDA
 
 
 
