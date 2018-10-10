@@ -33,7 +33,6 @@ soup = BeautifulSoup(r.text, 'lxml')
 _ = soup.find('div', {'class': 'tr_main_cats'})
 category_list = _.findAll('a')
 category_list = list(map(get_href, category_list))
-print()
 #
 counter = 0
 #
@@ -41,50 +40,20 @@ counter = 0
 for i in category_list:
     counter += 1
     category_url = f'http://rutracker.org/forum/{i}'
-    c = open('nashe.html')
+    c = get(category_url)
     soup = BeautifulSoup(c, 'lxml')
     _ = soup.find('table', {'class': 'forumline forum'})
     subcategory_list = _.findAll('h4', {'class': 'forumlink'})
     subcategory_list = [x.a for x in subcategory_list]
     subcategory_list = list(map(get_href, subcategory_list))
     print(subcategory_list)
-    for j in subcategory_list:
-        subcategory_url = f'http://rutracker.org/forum/{j}'
-        t = get(subcategory_url)
-        soup = BeautifulSoup(t, 'lxml')
-
-
-    if counter == 1:
-        break
-
-
-
-
-#  HUY PIZDA DJIGURDA
-
-
-
-
-
-# #
-# counter = 0
-# #
-# for el in els:
-#     movie_href_list = el.findAll(href=True)
-#     movie_href = movie_href_list[1].get('href')
-#     movie_url = 'https://www.kinopoisk.ru%s' % (movie_href)
-#     rr = get(movie_url)
-#     sleep(5)
-#     #
-#     counter += 1
-#     if counter == 3:
-#         break
-#     #
-#     print(rr)
-#     soup = BeautifulSoup(rr.text, 'lxml')
-#     russian_name_ = soup.find('div', {'data-metrika': 'film_card'})
-#     russian_name = russian_name_.find('h1').text
-#     print(russian_name, counter)
-# with open('test1.html', 'w', encoding='UTF-8') as output_file:
-#     output_file.write(rr.text)
-#
+    # for j in subcategory_list:
+    #     subcategory_url = f'http://rutracker.org/forum/{j}'
+    #     t = get(subcategory_url)
+    #     soup = BeautifulSoup(t, 'lxml')
+    # with open('test1.html', 'w', encoding='UTF-8') as output_file:
+    #     output_file.write(t.text)
+    #
+    #
+    # if counter == 1:
+    #     break

@@ -14,6 +14,8 @@ def convert(a):
     return a.text
 csv_file = 'movies.csv'
 
+
+#cookies
 s = requests.Session()
 data = {"login_username": "Dmitry_Kuznetsov", "login_password":"dmitrykuznetsov1998"}
 url_auth = "http://kinopoisk.ru"
