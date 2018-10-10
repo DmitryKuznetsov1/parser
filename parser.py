@@ -44,8 +44,8 @@ for i in category_list:
     soup = BeautifulSoup(c.text, 'lxml')
     _ = soup.find('table', {'class': 'forumline forum'})
     subcategory_list = _.findAll('h4', {'class': 'forumlink'})
-    subcategory_list = [x.a for x in subcategory_list]
-    subcategory_list = list(map(get_href, subcategory_list))
+    subcategory_list = [x.text for x in subcategory_list]
+    #subcategory_list = list(map(get_href, subcategory_list))
     print(subcategory_list)
     # for j in subcategory_list:
     #     subcategory_url = f'http://rutracker.org/forum/{j}'
