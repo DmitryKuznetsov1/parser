@@ -41,7 +41,7 @@ for i in category_list:
     counter += 1
     category_url = f'http://rutracker.org/forum/{i}'
     c = get(category_url)
-    soup = BeautifulSoup(c, 'lxml')
+    soup = BeautifulSoup(c.text, 'lxml')
     _ = soup.find('table', {'class': 'forumline forum'})
     subcategory_list = _.findAll('h4', {'class': 'forumlink'})
     subcategory_list = [x.a for x in subcategory_list]
