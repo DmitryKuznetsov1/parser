@@ -44,6 +44,8 @@ for i in category_list:
     c = get(category_url)
     soup = BeautifulSoup(c.text, 'lxml')
     _ = soup.find('table', {'class': 'forumline forum'})
+    if _ is None:
+        continue
     subcategory_list = _.findAll('h4', {'class': 'forumlink'})
     subcategory_list = [x.text for x in subcategory_list]
     #subcategory_list = list(map(get_href, subcategory_list))
