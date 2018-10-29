@@ -35,8 +35,9 @@ for i in category_list_href:
     soup = BeautifulSoup(c.text, 'lxml')
     _ = soup.find('table', {'class': 'forumline forum'})
     subcategory_list = _.findAll('h4', {'class': 'forumlink'})
-    subcategory_list = [x.a.get('href') for x in subcategory_list]
-    print(subcategory_list)
+    subcategory_list_href = [x.a.get('href') for x in subcategory_list]
+    subcategory_list_name = [x.text for x in subcategory_list]
+    print(subcategory_list_name)
     for j in subcategory_list:
         if 'фильмы' in j:
             print(j)
