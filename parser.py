@@ -37,8 +37,8 @@ for i in category_list_href:
     subcategory_list = _.findAll('h4', {'class': 'forumlink'})
     subcategory_list_href = [x.a.get('href') for x in subcategory_list]
     subcategory_list_name = [x.text for x in subcategory_list]
-    print(subcategory_list_name)
-    for j in subcategory_list:
+    #print(subcategory_list_name)
+    for j in subcategory_list_name:
         if 'фильмы' in j:
             print(j)
     #     subcategory_url = f'http://rutracker.org/forum/{j}'
