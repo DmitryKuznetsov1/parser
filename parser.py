@@ -1,3 +1,4 @@
+# coding: utf-8
 from requests import get, Session
 from bs4 import BeautifulSoup
 from time import sleep
@@ -39,7 +40,7 @@ counter = 0
 
 for i in category_list:
     counter += 1
-    category_url = f'http://rutracker.org/forum/{i}'
+    category_url = 'http://rutracker.org/forum/%s' % (i)
     c = get(category_url)
     soup = BeautifulSoup(c.text, 'lxml')
     _ = soup.find('table', {'class': 'forumline forum'})
