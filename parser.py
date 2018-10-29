@@ -40,7 +40,7 @@ for i in category_list_href:
     #print(subcategory_list_name)
     for j in subcategory_list_name:
         j = j.lower()
-        if 'фильмы' in j or 'кино' in j or 'кине' in j and 'архив' not in j:
+        if ('фильмы' in j or 'кино' in j or 'кине' in j) and 'архив' not in j:
             print(j)
     #     subcategory_url = f'http://rutracker.org/forum/{j}'
     #     t = get(subcategory_url)
