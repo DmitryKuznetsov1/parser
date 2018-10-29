@@ -39,6 +39,7 @@ for i in category_list_href:
     subcategory_list_name = [x.text for x in subcategory_list]
     #print(subcategory_list_name)
     for j in subcategory_list_name:
+        j = j.lower()
         if 'фильмы' in j or 'кино' in j or 'кине' in j:
             print(j)
     #     subcategory_url = f'http://rutracker.org/forum/{j}'
