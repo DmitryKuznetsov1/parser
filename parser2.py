@@ -15,7 +15,9 @@ for y in x:
     yy = yy.span
     if yy is not None and yy.text == '√':
         z = y.find('a', {'class': 'torTopic bold tt-text'}).get('href')
-        print(z, end=';;;')
+        w = y.find('a', {'class': 'torTopic bold tt-text'}).text
+        print(z, end=', ')
+        print(w, end='')
         print()
         counter += 1
 print(counter)
