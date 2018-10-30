@@ -43,7 +43,7 @@ for i in category_list_href:
         counter += 1
         y = subcategory_list[x][1].lower()
         if ('фильмы' in y or 'кино' in y or 'кине' in y) and 'архив' not in y:
-            subcategory_list.pop([counter])
+            subcategory_list.pop(counter)
             counter -= 1
 
     # print(subcategory_list_name)
