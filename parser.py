@@ -35,19 +35,19 @@ for i in category_list_href:
     soup = BeautifulSoup(c.text, 'lxml')
     _ = soup.find('table', {'class': 'forumline forum'})
     subcategory_list = _.findAll('h4', {'class': 'forumlink'})
-    subcategory_list_href = [x.a.get('href') for x in subcategory_list]
-    subcategory_list_name = [x.text for x in subcategory_list]
-    # subcategory_list = [[x.a.get('href') for x in subcategory_list], [x.text for x in subcategory_list]]
+    # subcategory_list_href = [x.a.get('href') for x in subcategory_list]
+    # subcategory_list_name = [x.text for x in subcategory_list]
+    subcategory_list = [[x.a.get('href'), x.text] for x in subcategory_list]
     counter = -1
-    for var in subcategory_list_name:
+    for x in range(subcategory_list):
         counter += 1
-        var = var.lower()
-        if ('фильмы' in var or 'кино' in var or 'кине' in var) and 'архив' not in var:
-            subcategory_list_href.pop([counter])
-            subcategory_list_name.pop([counter])
+        y = subcategory_list[x][1].lower()
+        if ('фильмы' in y or 'кино' in y or 'кине' in y) and 'архив' not in y:
+            subcategory_list.pop([counter])
             counter -= 1
-    #print(subcategory_list_name)
-    for j in subcategory_list_name:
+
+    # print(subcategory_list_name)
+    for j in subcategory_list:
         print(j)
     #     subcategory_url = f'http://rutracker.org/forum/{j}'
     #     t = get(subcategory_url)
