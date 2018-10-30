@@ -9,8 +9,9 @@ def soup(url):
 
 s = soup('https://rutracker.org/forum/viewforum.php?f=187')
 x = s.findAll('div', {'class': 'torTopic'})
+x = [y.span for y in x]
 for y in x:
     if y is not None:
-        y = y.span
+        y = y.text
         print(y, end='')
         print()
