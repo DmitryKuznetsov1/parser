@@ -51,8 +51,11 @@ for i in category_list_href:
         z = subcategory_list[j][0]
         subcategory_url = 'http://rutracker.org/forum/%s' % z
         s = soup(subcategory_url)
+        #
+        cyka = get(subcategory_url)
+        #
        # x = s.find('div', {'class': 'bottom_info pad_2'}) # .findAll('b')
-        print(s) # x[1].text)
+        print(cyka) # x[1].text)
 
 
 
