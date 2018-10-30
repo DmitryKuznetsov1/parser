@@ -47,9 +47,11 @@ for i in category_list_href:
             counter -= 1
     for j in range(len(subcategory_list)):
         z = subcategory_list[j][0]
-        print(z)
+        subcategory_url = 'http://rutracker.org/forum/%s' % z
+        print(subcategory_url)
 
-    #     subcategory_url = f'http://rutracker.org/forum/{j}'
+
+
     #     t = get(subcategory_url)
     #     soup = BeautifulSoup(t, 'lxml')
     # with open('test1.html', 'w', encoding='UTF-8') as output_file:
