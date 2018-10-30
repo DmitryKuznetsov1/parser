@@ -13,10 +13,12 @@ x = s.findAll('div', {'class': 'torTopic'})
 for y in x:
     yy = y
     yy = yy.span
-    if yy is not None and yy.text == '&radic':
-        z = y.find('a', {'class': 'torTopic bold tt-text'}).get('href')
-        print(z, end=';;;')
-        print()
-        counter += 1
-    print(counter)
+    print(y, end='~~~~')
+    print(yy)
+    # if yy is not None and yy.text == '&radic':
+    #     z = y.find('a', {'class': 'torTopic bold tt-text'}).get('href')
+    #     print(z, end=';;;')
+    #     print()
+    #     counter += 1
+    # print(counter)
 
