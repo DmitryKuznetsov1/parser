@@ -30,7 +30,7 @@ _ = soup.find('div', {'class': 'tr_main_cats'})
 # Фильмы, Наше кино, Артхаус и авторское кино, DVD, HD, Мультсериалы соответсвенно
 category_list_href = ["viewforum.php?f=7", "viewforum.php?f=22", "viewforum.php?f=124", "viewforum.php?f=93",
                  "viewforum.php?f=2198", "viewforum.php?f=4"]
-
+count = 0
 for i in category_list_href:
     category_url = 'http://rutracker.org/forum/%s' % i
     c = get(category_url)
@@ -51,11 +51,7 @@ for i in category_list_href:
         u = get(subcategory_url).text
         s = BeautifulSoup(u, 'lxml')
         x = s.find('div', {'class': 'bottom_info pad_2'}).findAll('b')
-        print(x[1].text)
-
-
-    #     t = get(subcategory_url)
-    #     soup = BeautifulSoup(t, 'lxml')
-    # with open('test1.html', 'w', encoding='UTF-8') as output_file:
-    #     output_file.write(t.text)
+        for k in range(int(x[1].text)):
+            count += 1
+            print(count)
 
