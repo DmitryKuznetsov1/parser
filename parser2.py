@@ -11,6 +11,6 @@ s = soup('https://rutracker.org/forum/viewforum.php?f=187')
 x = s.findAll('div', {'class': 'torTopic'})
 for y in x:
     if y is not None:
-        y = y.span.text
+        y = y.span
         print(y, end='')
         print()
