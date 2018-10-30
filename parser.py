@@ -37,11 +37,18 @@ for i in category_list_href:
     subcategory_list = _.findAll('h4', {'class': 'forumlink'})
     subcategory_list_href = [x.a.get('href') for x in subcategory_list]
     subcategory_list_name = [x.text for x in subcategory_list]
+    # subcategory_list = [[x.a.get('href') for x in subcategory_list], [x.text for x in subcategory_list]]
+    counter = 0
+    for var in subcategory_list_name:
+        counter += 1
+        var = var.lower
+        if ('фильмы' in var or 'кино' in var or 'кине' in var) and 'архив' not in var:
+            subcategory_list_href.pop([counter])
+            subcategory_list_name.pop([counter])
+            counter -= 1
     #print(subcategory_list_name)
     for j in subcategory_list_name:
-        j = j.lower()
-        if ('фильмы' in j or 'кино' in j or 'кине' in j) and 'архив' not in j:
-            print(j)
+        print(j)
     #     subcategory_url = f'http://rutracker.org/forum/{j}'
     #     t = get(subcategory_url)
     #     soup = BeautifulSoup(t, 'lxml')
