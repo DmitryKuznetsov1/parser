@@ -39,7 +39,7 @@ for i in category_list_href:
     # subcategory_list_name = [x.text for x in subcategory_list]
     subcategory_list = [[x.a.get('href'), x.text] for x in subcategory_list]
     counter = -1
-    for x in range(subcategory_list):
+    for x in range(len(subcategory_list)):
         counter += 1
         y = subcategory_list[x][1].lower()
         if ('фильмы' in y or 'кино' in y or 'кине' in y) and 'архив' not in y:
