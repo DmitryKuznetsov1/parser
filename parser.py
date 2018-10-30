@@ -38,7 +38,7 @@ for i in category_list_href:
     subcategory_list_href = [x.a.get('href') for x in subcategory_list]
     subcategory_list_name = [x.text for x in subcategory_list]
     # subcategory_list = [[x.a.get('href') for x in subcategory_list], [x.text for x in subcategory_list]]
-    counter = 0
+    counter = -1
     for var in subcategory_list_name:
         counter += 1
         var = var.lower()
