@@ -52,6 +52,5 @@ for i in category_list_href:
         s = BeautifulSoup(u, 'lxml')
         x = s.find('div', {'class': 'bottom_info pad_2'}).findAll('b')
         for k in range(int(x[1].text)):
-            count += 1
-            print(count)
+            print(k)
 
