@@ -45,16 +45,16 @@ for i in category_list_href:
         if not(('фильмы' in y or 'кино' in y or 'кине' in y) and ('архив' not in y) and ('ищу' not in y)):
             subcategory_list.pop(counter)
             counter -= 1
-        print(subcategory_list)
-    # for j in range(len(subcategory_list)):
-    #     z = subcategory_list[j][0]
-    #     subcategory_url = 'http://rutracker.org/forum/%s' % z
-    #     s = soup(subcategory_url)
-    #     #
-    #     cyka = get(subcategory_url)
-    #     #
-    #    # x = s.find('div', {'class': 'bottom_info pad_2'}) # .findAll('b')
-    #     print(cyka) # x[1].text)
+    for j in range(len(subcategory_list)):
+        z = subcategory_list[j][0]
+        subcategory_url = 'http://rutracker.org/forum/%s' % z
+        # s = soup(subcategory_url)
+        # #
+        # cyka = get(subcategory_url)
+        # #
+        # # x = s.find('div', {'class': 'bottom_info pad_2'}) # .findAll('b')
+        # print(cyka) # x[1].text)
+        print(subcategory_url)
 
 
 
