@@ -1,8 +1,6 @@
 # coding: utf-8
 from requests import get, Session
 from bs4 import BeautifulSoup
-from time import sleep
-import requests
 
 
 def get_href(x):
@@ -11,6 +9,12 @@ def get_href(x):
 
 def get_href_2(x):
     return x.a.get('href')
+
+
+def soup(url):
+    r = get(url)
+    return BeautifulSoup(r.text, 'lxml')
+
 
 # s = requests.Session()
 # data = {"login_username" : "Dmitry_Kuznetsov", "login_password":"dmitrykuznetsov1998"}
@@ -21,8 +25,6 @@ def get_href_2(x):
 
 main_url = 'https://rutracker.org'
 r = get(main_url)
-
-
 soup = BeautifulSoup(r.text, 'lxml')
 _ = soup.find('div', {'class': 'tr_main_cats'})
 # Фильмы, Наше кино, Артхаус и авторское кино, DVD, HD, Мультсериалы соответсвенно
@@ -30,7 +32,7 @@ category_list_href = ["viewforum.php?f=7", "viewforum.php?f=22", "viewforum.php?
                  "viewforum.php?f=2198", "viewforum.php?f=4"]
 
 for i in category_list_href:
-    category_url = 'http://rutracker.org/forum/%s' % (i)
+    category_url = 'http://rutracker.org/forum/%s' % i
     c = get(category_url)
     soup = BeautifulSoup(c.text, 'lxml')
     _ = soup.find('table', {'class': 'forumline forum'})
@@ -48,7 +50,8 @@ for i in category_list_href:
     for j in range(len(subcategory_list)):
         z = subcategory_list[j][0]
         subcategory_url = 'http://rutracker.org/forum/%s' % z
-        print(subcategory_url)
+        s = soup(subcategory_url)
+
 
 
 
