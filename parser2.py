@@ -9,4 +9,5 @@ def soup(url):
 
 s = soup('https://rutracker.org/forum/viewforum.php?f=187')
 x = s.findAll('div', {'class': 'torTopic'})
+x = [y.span for y in x]
 print(x)
