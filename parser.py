@@ -48,10 +48,11 @@ for i in category_list_href:
     for j in range(len(subcategory_list)):
         z = subcategory_list[j][0]
         subcategory_url = 'http://rutracker.org/forum/%s' % z
-        s = soup(subcategory_url)
-        # x = s.find('div', {'class': 'bottom_info pad_2'}) # .findAll('b')
+        u = get(subcategory_url).text
+        # s = BeautifulSoup(u, 'lxml')
+        # x = s.find('div', {'class': 'bottom_info pad_2'}).findAll('b')
         # print(x[1].text)
-        print(s)
+        print(u)
 
 
     #     t = get(subcategory_url)
