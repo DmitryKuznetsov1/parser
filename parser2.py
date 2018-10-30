@@ -13,5 +13,4 @@ x = [y.span for y in x]
 for y in x:
     if y is not None:
         y = y.text
-        print(y, end='')
-        print()
+        print(y, end=' ')
