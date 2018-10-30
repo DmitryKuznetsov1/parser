@@ -12,8 +12,8 @@ def get_href_2(x):
 
 
 def soup(url):
-    u = get(url)
-    return BeautifulSoup(u.text, 'lxml')
+    u = get(url).text
+    return BeautifulSoup(u, 'lxml')
 
 
 # s = requests.Session()
@@ -48,14 +48,10 @@ for i in category_list_href:
     for j in range(len(subcategory_list)):
         z = subcategory_list[j][0]
         subcategory_url = 'http://rutracker.org/forum/%s' % z
-        # s = soup(subcategory_url)
-        # #
-        cyka = get(subcategory_url).text
-        # #
-        # # x = s.find('div', {'class': 'bottom_info pad_2'}) # .findAll('b')
-        # print(cyka) # x[1].text)
-        print(cyka)
-
+        s = soup(subcategory_url)
+        # x = s.find('div', {'class': 'bottom_info pad_2'}) # .findAll('b')
+        # print(x[1].text)
+        print(s)
 
 
     #     t = get(subcategory_url)
