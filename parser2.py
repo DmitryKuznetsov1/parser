@@ -11,7 +11,8 @@ s = soup('https://rutracker.org/forum/viewforum.php?f=187')
 x = s.findAll('div', {'class': 'torTopic'})
 for y in x:
     z = y.find('a', {'class': 'torTopic bold tt-text'}).text
-    print(z)
+    print(z, end=';;;')
+    print()
 # for y in x:
 #     print(y, end='---')
 #     print()
