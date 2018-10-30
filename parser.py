@@ -45,10 +45,10 @@ for i in category_list_href:
         if not(('фильмы' in y or 'кино' in y or 'кине' in y) and ('архив' not in y) and ('ищу' not in y)):
             subcategory_list.pop(counter)
             counter -= 1
+    for j in range(len(subcategory_list)):
+        z = subcategory_list[j][0]
+        print(z)
 
-    # print(subcategory_list_name)
-    for j in subcategory_list:
-        print(j)
     #     subcategory_url = f'http://rutracker.org/forum/{j}'
     #     t = get(subcategory_url)
     #     soup = BeautifulSoup(t, 'lxml')
