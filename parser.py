@@ -12,8 +12,8 @@ def get_href_2(x):
 
 
 def soup(url):
-    r = get(url)
-    return BeautifulSoup(r.text, 'lxml')
+    u = get(url)
+    return BeautifulSoup(u.text, 'lxml')
 
 
 # s = requests.Session()
