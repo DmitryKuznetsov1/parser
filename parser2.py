@@ -11,7 +11,7 @@ counter = 0
 s = soup('https://rutracker.org/forum/viewforum.php?f=187')
 x = s.findAll('div', {'class': 'torTopic'})
 for y in x:
-    z = y.find('a', {'class': 'torTopic bold tt-text'}).text
+    z = y.find('a', {'class': 'torTopic bold tt-text'}).get('href')
     print(z, end=';;;')
     print()
     counter += 1
