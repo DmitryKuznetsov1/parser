@@ -8,6 +8,5 @@ def soup(url):
 
 
 s = soup('https://rutracker.org/forum/viewforum.php?f=941')
-_ = s.find('div', {'class': 'bottom_info pad_2'})
-#    subcategory_list = _.findAll('h4', {'class': 'forumlink'})
-print(_)
+x = s.find('div', {'class': 'bottom_info pad_2'}).findAll('b')
+print(x[1].text)
