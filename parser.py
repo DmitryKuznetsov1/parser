@@ -66,7 +66,7 @@ for i in category_list_href:
                     z = y.find('a', {'class': 'torTopic bold tt-text'}).get('href')
                     w = y.find('a', {'class': 'torTopic bold tt-text'}).text
                     print(count, ' ', z, end=', ')
-                    # print(w, end='')
+                    print(w, end='')
                     print()
             #         counter += 1
             # print(counter)
