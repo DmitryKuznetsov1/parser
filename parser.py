@@ -62,9 +62,10 @@ for i in category_list_href:
                 yy = y
                 yy = yy.span
                 if yy is not None and yy.text == '√':
+                    count += 1
                     z = y.find('a', {'class': 'torTopic bold tt-text'}).get('href')
                     w = y.find('a', {'class': 'torTopic bold tt-text'}).text
-                    print(z, end=', ')
+                    print(count, ' ', z, end=', ')
                     # print(w, end='')
                     print()
             #         counter += 1
