@@ -31,6 +31,8 @@ _ = soup.find('div', {'class': 'tr_main_cats'})
 category_list_href = ["viewforum.php?f=7", "viewforum.php?f=22", "viewforum.php?f=124", "viewforum.php?f=93",
                  "viewforum.php?f=2198", "viewforum.php?f=4"]
 count = 0
+
+
 for i in category_list_href:
     category_url = 'http://rutracker.org/forum/%s' % i
     c = get(category_url)
@@ -55,5 +57,15 @@ for i in category_list_href:
             subcategory_url_page = subcategory_url + '&start=%s' % k*50
             u = get(subcategory_url_page).text
             s = BeautifulSoup(u, 'lxml')
-
-
+            x = s.findAll('div', {'class': 'torTopic'})
+            for y in x:
+                yy = y
+                yy = yy.span
+                if yy is not None and yy.text == '√':
+                    z = y.find('a', {'class': 'torTopic bold tt-text'}).get('href')
+                    w = y.find('a', {'class': 'torTopic bold tt-text'}).text
+                    print(z, end=', ')
+                    # print(w, end='')
+                    print()
+            #         counter += 1
+            # print(counter)
