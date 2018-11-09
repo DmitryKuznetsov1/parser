@@ -54,8 +54,8 @@ for i in category_list_href:
         s = BeautifulSoup(u, 'lxml')
         x = s.find('div', {'class': 'bottom_info pad_2'}).findAll('b')
         for k in range(int(x[1].text)):
-            subcategory_url_page = subcategory_url + '&start=%s' % k*50
-            print(subcategory_url_page)
+            subcategory_url_page = subcategory_url + '&start=%s' % (k*50)
+            print(k, ' ', subcategory_url_page)
             u = get(subcategory_url_page).text
             s = BeautifulSoup(u, 'lxml')
             x = s.findAll('div', {'class': 'torTopic'})
@@ -66,8 +66,8 @@ for i in category_list_href:
                     count += 1
                     z = y.find('a', {'class': 'torTopic bold tt-text'}).get('href')
                     w = y.find('a', {'class': 'torTopic bold tt-text'}).text
-                    print(count, ' ', z, end=', ')
-                    print(w, end='')
+                    #print(count, ' ', z, end=', ')
+                    #print(w, end='')
                     print()
             #         counter += 1
             # print(counter)
