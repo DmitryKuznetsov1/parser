@@ -54,7 +54,7 @@ for i in category_list_href:
         s = BeautifulSoup(u, 'lxml')
         x = s.find('div', {'class': 'bottom_info pad_2'}).findAll('b')
         for k in range(int(x[1].text)):
-            subcategory_url_page = subcategory_url + '&start=%s' % k*50
+            subcategory_url_page = subcategory_url + '&start=%s' % (k*50)
             print(k,' ', subcategory_url_page)
             u = get(subcategory_url_page).text
             s = BeautifulSoup(u, 'lxml')
