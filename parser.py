@@ -1,6 +1,7 @@
 # coding: utf-8
 from requests import get, Session
 from bs4 import BeautifulSoup
+import re
 
 
 def get_href(x):
@@ -32,9 +33,9 @@ category_list_href = ["viewforum.php?f=7", "viewforum.php?f=22", "viewforum.php?
                  "viewforum.php?f=2198", "viewforum.php?f=4"]
 count = 0
 
-
+# проходим по всех категориям
 for i in category_list_href:
-    category_url = 'http://rutracker.org/forum/%s' % i
+    category_url = 'http://rutracker.org/forum/%s' % (i)
     c = get(category_url)
     soup = BeautifulSoup(c.text, 'lxml')
     _ = soup.find('table', {'class': 'forumline forum'})
@@ -49,7 +50,7 @@ for i in category_list_href:
             counter -= 1
     for j in range(len(subcategory_list)):
         z = subcategory_list[j][0]
-        subcategory_url = 'http://rutracker.org/forum/%s' % z
+        subcategory_url = 'http://rutracker.org/forum/%s' % (z)
         u = get(subcategory_url).text
         s = BeautifulSoup(u, 'lxml')
         x = s.find('div', {'class': 'bottom_info pad_2'}).findAll('b')
@@ -65,6 +66,8 @@ for i in category_list_href:
                     count += 1
                     z = y.find('a', {'class': 'torTopic bold tt-text'}).get('href')
                     w = y.find('a', {'class': 'torTopic bold tt-text'}).text
+                    result = re.split(r'/', w)
+                    w = result[0].rstrip().lstrip()
                     print(count, ' ', z, end=', ')
                     print(w, end='')
                     print()
