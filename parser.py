@@ -69,6 +69,6 @@ for i in category_list_href:
                     result = re.split(r'/', w)
                     w = result[0].rstrip().lstrip()
                     name_rus = rus_name(w)
-                    print(count, name_rus)
+                    print(count, z, name_rus)
             #         counter += 1
             # print(counter)
