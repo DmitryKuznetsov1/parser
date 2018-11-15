@@ -32,6 +32,7 @@ _ = soup.find('div', {'class': 'tr_main_cats'})
 category_list_href = ["viewforum.php?f=7", "viewforum.php?f=22", "viewforum.php?f=124", "viewforum.php?f=93",
                  "viewforum.php?f=2198", "viewforum.php?f=4"]
 count = 0
+number_of_unique = 0
 name_rus_list = []
 # проходим по всех категориям
 for i in category_list_href:
@@ -71,8 +72,9 @@ for i in category_list_href:
                     name_rus = rus_name(w)
                     if name_rus not in name_rus_list:
                         name_rus_list.append(name_rus)
-                    print(count, len(name_rus_list))
+                        number_of_unique += 1
+                    print(count, number_of_unique)
             #         counter += 1
             # print(counter)
-print('All =', count, 'Unique =', len(name_rus_list))
-print('percent of unique', count/len(name_rus_list*100), '%')
+print('All =', count, 'Unique =', number_of_unique)
+print('percent of unique', count/number_of_unique * 100, '%')
