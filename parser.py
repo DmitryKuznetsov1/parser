@@ -4,12 +4,12 @@ from bs4 import BeautifulSoup
 import re
 
 
-def get_href(x):
-    return x.get('href')
-
-
-def get_href_2(x):
-    return x.a.get('href')
+def rus_name(name):
+    pattern = re.compile(r'[()]')
+    a = pattern.split(name, maxsplit=1)
+    b = a[0].split(r'/')
+    c = b[0].rstrip()
+    return c
 
 
 def soup(url):
@@ -68,8 +68,7 @@ for i in category_list_href:
                     w = y.find('a', {'class': 'torTopic bold tt-text'}).text
                     result = re.split(r'/', w)
                     w = result[0].rstrip().lstrip()
-                    print(count, ' ', z, end=', ')
-                    print(w, end='')
-                    print()
+                    name_rus = rus_name(w)
+                    print(count, name_rus)
             #         counter += 1
             # print(counter)
