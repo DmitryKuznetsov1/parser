@@ -32,7 +32,7 @@ _ = soup.find('div', {'class': 'tr_main_cats'})
 category_list_href = ["viewforum.php?f=7", "viewforum.php?f=22", "viewforum.php?f=124", "viewforum.php?f=93",
                  "viewforum.php?f=2198", "viewforum.php?f=4"]
 count = 0
-
+name_rus_list = []
 # проходим по всех категориям
 for i in category_list_href:
     category_url = 'http://rutracker.org/forum/%s' % (i)
@@ -69,6 +69,9 @@ for i in category_list_href:
                     result = re.split(r'/', w)
                     w = result[0].rstrip().lstrip()
                     name_rus = rus_name(w)
-                    print(count, z, name_rus)
+                    if name_rus not in name_rus_list:
+                        name_rus_list.append(name_rus)
+                    print(count, name_rus)
+                    print(name_rus_list)
             #         counter += 1
             # print(counter)
