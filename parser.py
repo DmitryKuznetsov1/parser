@@ -72,6 +72,6 @@ for i in category_list_href:
                     if name_rus not in name_rus_list:
                         name_rus_list.append(name_rus)
                     print(count, name_rus)
-                    print(name_rus_list)
+                    print(len(name_rus_list))
             #         counter += 1
             # print(counter)
